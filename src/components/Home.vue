@@ -17,13 +17,12 @@
 </template>
 
 <script>
+import db from "../firebase/initialization.js"
 export default {
   name:'Home',
   data() {
     return {
       smoothies:[
-        {title: "Ninja Brew"  ,slug:"ninja-brew"  ,ingredients:["milk","avocado","banana"], id:'1'},
-        {title: "Morining Mood" ,slug:"morning-mood"  ,ingredients:["honey","strawberry","mango"], id:'2'},
       ]
     }
   },
@@ -33,6 +32,16 @@ export default {
       return smoothie.id != id;
     })
   }
+  }, 
+  created(){
+    db.collection('smoothies').get()
+    .then(snapshot =>{
+      snapshot.forEach(doc =>{
+        let smoothie = doc.data()
+        smoothie.id = doc.id
+        this.smoothies.push(smoothie)
+      })
+    })
   }
 }
 </script>

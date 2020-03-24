@@ -4,7 +4,7 @@
       <nav class="nav-extended indigo darken-2">
           <div class="nav-content">
               <router-link to="">
-                  <spam class="nav-title">Ninja-smoothies</spam>
+                  <span class="nav-title">Ninja-smoothies</span>
               </router-link>
               <a href="" class="btn-floating btn-large halfway-fab pink">
                   <router-link to="">
